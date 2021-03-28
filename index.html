@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+    <title>Login And Registration Form</title>
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="deshbord.html" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="form-box">
+            <div class="btn-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+
+            <div class="social-icons">
+                <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+            </div>
+
+            <form id="login" class="input-group">
+                <input type="text" name="userid" id="userid" class="input-field" placeholder="User Id" required>
+                <input type="text" name="password" id="password" class="input-field" placeholder="Enter Password"
+                    required>
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+                <button class="submit-btn" onclick="loginUser()">Log in</button>
+            </form>
+            <div id="errormsg"></div>
+
+            <form id="register" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="email" class="input-field" placeholder="Email Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box"><span>I agree to the terms & condition</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="com">
+        <div id="loaddata">
+            this is going to change
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register");
+        var z = document.getElementById("btn");
+
+        function register() {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+
+        function login() {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+        }
+
+
+        function loginUser() {
+
+            var objRequest = new XMLHttpRequest();
+            objRequest.open('GET', 'deshbord.html', true);
+            objRequest.send();
+
+            objRequest.onreadystatechange = function () {
+                if (objRequest.readyState == 4 && objRequest.status == 200) {
+                    document.getElementById('loaddata').innerHTML = objRequest.responseText;
+                }
+            }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
